@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns="http://baseclass.soap.api.endpointsoap.challenge.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ax21="http://request2.restful.api.endpointsoap.challenge.com/xsd" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" targetNamespace="http://baseclass.soap.api.endpointsoap.challenge.com">
+    <wsdl:types>
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://request2.restful.api.endpointsoap.challenge.com/xsd">
+            <xs:complexType name="HeldItem">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="item" nillable="true" type="ax21:Species"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="versionDetails" nillable="true" type="ax21:VersionDetail"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Species">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="url" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="VersionDetail">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="rarity" type="xs:long"/>
+                    <xs:element minOccurs="0" name="version" nillable="true" type="ax21:Species"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Ability">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="ability" nillable="true" type="ax21:Species"/>
+                    <xs:element minOccurs="0" name="hidden" type="xs:boolean"/>
+                    <xs:element minOccurs="0" name="slot" type="xs:long"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema xmlns:ax22="http://request2.restful.api.endpointsoap.challenge.com/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://baseclass.soap.api.endpointsoap.challenge.com">
+            <xs:import namespace="http://request2.restful.api.endpointsoap.challenge.com/xsd"/>
+            <xs:element name="getNamePokemon">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="args0" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getNamePokemonResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getLocationAreaEncounters">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="args0" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getLocationAreaEncountersResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getId">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="args0" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getIdResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="return" type="xs:long"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getHeldItems">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="args0" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getHeldItemsResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="ax22:HeldItem"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getBaseExperience">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="args0" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getBaseExperienceResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="return" type="xs:long"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getAbilities">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="args0" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getAbilitiesResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="ax22:Ability"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="getLocationAreaEncountersRequest">
+        <wsdl:part name="parameters" element="ns:getLocationAreaEncounters"/>
+    </wsdl:message>
+    <wsdl:message name="getLocationAreaEncountersResponse">
+        <wsdl:part name="parameters" element="ns:getLocationAreaEncountersResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getHeldItemsRequest">
+        <wsdl:part name="parameters" element="ns:getHeldItems"/>
+    </wsdl:message>
+    <wsdl:message name="getHeldItemsResponse">
+        <wsdl:part name="parameters" element="ns:getHeldItemsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getAbilitiesRequest">
+        <wsdl:part name="parameters" element="ns:getAbilities"/>
+    </wsdl:message>
+    <wsdl:message name="getAbilitiesResponse">
+        <wsdl:part name="parameters" element="ns:getAbilitiesResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getBaseExperienceRequest">
+        <wsdl:part name="parameters" element="ns:getBaseExperience"/>
+    </wsdl:message>
+    <wsdl:message name="getBaseExperienceResponse">
+        <wsdl:part name="parameters" element="ns:getBaseExperienceResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getNamePokemonRequest">
+        <wsdl:part name="parameters" element="ns:getNamePokemon"/>
+    </wsdl:message>
+    <wsdl:message name="getNamePokemonResponse">
+        <wsdl:part name="parameters" element="ns:getNamePokemonResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getIdRequest">
+        <wsdl:part name="parameters" element="ns:getId"/>
+    </wsdl:message>
+    <wsdl:message name="getIdResponse">
+        <wsdl:part name="parameters" element="ns:getIdResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="PokemonRequestSoapOperationPortType">
+        <wsdl:operation name="getLocationAreaEncounters">
+            <wsdl:input message="ns:getLocationAreaEncountersRequest" wsaw:Action="urn:getLocationAreaEncounters"/>
+            <wsdl:output message="ns:getLocationAreaEncountersResponse" wsaw:Action="urn:getLocationAreaEncountersResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getHeldItems">
+            <wsdl:input message="ns:getHeldItemsRequest" wsaw:Action="urn:getHeldItems"/>
+            <wsdl:output message="ns:getHeldItemsResponse" wsaw:Action="urn:getHeldItemsResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getAbilities">
+            <wsdl:input message="ns:getAbilitiesRequest" wsaw:Action="urn:getAbilities"/>
+            <wsdl:output message="ns:getAbilitiesResponse" wsaw:Action="urn:getAbilitiesResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getBaseExperience">
+            <wsdl:input message="ns:getBaseExperienceRequest" wsaw:Action="urn:getBaseExperience"/>
+            <wsdl:output message="ns:getBaseExperienceResponse" wsaw:Action="urn:getBaseExperienceResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getNamePokemon">
+            <wsdl:input message="ns:getNamePokemonRequest" wsaw:Action="urn:getNamePokemon"/>
+            <wsdl:output message="ns:getNamePokemonResponse" wsaw:Action="urn:getNamePokemonResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getId">
+            <wsdl:input message="ns:getIdRequest" wsaw:Action="urn:getId"/>
+            <wsdl:output message="ns:getIdResponse" wsaw:Action="urn:getIdResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="PokemonRequestSoapOperationSoap11Binding" type="ns:PokemonRequestSoapOperationPortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="getLocationAreaEncounters">
+            <soap:operation soapAction="urn:getLocationAreaEncounters" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getHeldItems">
+            <soap:operation soapAction="urn:getHeldItems" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getAbilities">
+            <soap:operation soapAction="urn:getAbilities" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getBaseExperience">
+            <soap:operation soapAction="urn:getBaseExperience" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getNamePokemon">
+            <soap:operation soapAction="urn:getNamePokemon" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getId">
+            <soap:operation soapAction="urn:getId" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="PokemonRequestSoapOperationSoap12Binding" type="ns:PokemonRequestSoapOperationPortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="getLocationAreaEncounters">
+            <soap12:operation soapAction="urn:getLocationAreaEncounters" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getHeldItems">
+            <soap12:operation soapAction="urn:getHeldItems" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getAbilities">
+            <soap12:operation soapAction="urn:getAbilities" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getBaseExperience">
+            <soap12:operation soapAction="urn:getBaseExperience" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getNamePokemon">
+            <soap12:operation soapAction="urn:getNamePokemon" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getId">
+            <soap12:operation soapAction="urn:getId" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="PokemonRequestSoapOperationHttpBinding" type="ns:PokemonRequestSoapOperationPortType">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="getLocationAreaEncounters">
+            <http:operation location="getLocationAreaEncounters"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getHeldItems">
+            <http:operation location="getHeldItems"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getAbilities">
+            <http:operation location="getAbilities"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getBaseExperience">
+            <http:operation location="getBaseExperience"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getNamePokemon">
+            <http:operation location="getNamePokemon"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getId">
+            <http:operation location="getId"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="PokemonRequestSoapOperation">
+        <wsdl:port name="PokemonRequestSoapOperationHttpSoap11Endpoint" binding="ns:PokemonRequestSoapOperationSoap11Binding">
+            <soap:address location="http://localhost:8080/axis2/services/PokemonRequestSoapOperation"/>
+        </wsdl:port>
+        <wsdl:port name="PokemonRequestSoapOperationHttpSoap12Endpoint" binding="ns:PokemonRequestSoapOperationSoap12Binding">
+            <soap12:address location="http://localhost:8080/axis2/services/PokemonRequestSoapOperation"/>
+        </wsdl:port>
+        <wsdl:port name="PokemonRequestSoapOperationHttpEndpoint" binding="ns:PokemonRequestSoapOperationHttpBinding">
+            <http:address location="http://localhost:8080/axis2/services/PokemonRequestSoapOperation"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
