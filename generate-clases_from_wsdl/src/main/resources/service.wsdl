@@ -1,10 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns="http://baseclass.soap.api.endpointsoap.challenge.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ax21="http://request2.restful.api.endpointsoap.challenge.com/xsd" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" targetNamespace="http://baseclass.soap.api.endpointsoap.challenge.com">
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:ns="http://baseclass.soap.api.endpointsoap.challenge.com"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  xmlns:ax21="http://request2.restful.api.endpointsoap.challenge.com/xsd"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl"
+                  targetNamespace="http://baseclass.soap.api.endpointsoap.challenge.com">
     <wsdl:types>
-        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://request2.restful.api.endpointsoap.challenge.com/xsd">
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified"
+                   targetNamespace="http://request2.restful.api.endpointsoap.challenge.com/xsd">
             <xs:complexType name="HeldItem">
                 <xs:sequence>
                     <xs:element minOccurs="0" name="item" nillable="true" type="ax21:Species"/>
-                    <xs:element maxOccurs="unbounded" minOccurs="0" name="versionDetails" nillable="true" type="ax21:VersionDetail"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="versionDetails" nillable="true"
+                                type="ax21:VersionDetail"/>
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType name="Species">
@@ -27,7 +36,9 @@
                 </xs:sequence>
             </xs:complexType>
         </xs:schema>
-        <xs:schema xmlns:ax22="http://request2.restful.api.endpointsoap.challenge.com/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://baseclass.soap.api.endpointsoap.challenge.com">
+        <xs:schema xmlns:ax22="http://request2.restful.api.endpointsoap.challenge.com/xsd"
+                   attributeFormDefault="qualified" elementFormDefault="qualified"
+                   targetNamespace="http://baseclass.soap.api.endpointsoap.challenge.com">
             <xs:import namespace="http://request2.restful.api.endpointsoap.challenge.com/xsd"/>
             <xs:element name="getNamePokemon">
                 <xs:complexType>
@@ -81,7 +92,8 @@
             <xs:element name="getHeldItemsResponse">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="ax22:HeldItem"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true"
+                                    type="ax22:HeldItem"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -109,7 +121,8 @@
             <xs:element name="getAbilitiesResponse">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="ax22:Ability"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true"
+                                    type="ax22:Ability"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -154,7 +167,8 @@
     <wsdl:portType name="PokemonRequestSoapOperationPortType">
         <wsdl:operation name="getLocationAreaEncounters">
             <wsdl:input message="ns:getLocationAreaEncountersRequest" wsaw:Action="urn:getLocationAreaEncounters"/>
-            <wsdl:output message="ns:getLocationAreaEncountersResponse" wsaw:Action="urn:getLocationAreaEncountersResponse"/>
+            <wsdl:output message="ns:getLocationAreaEncountersResponse"
+                         wsaw:Action="urn:getLocationAreaEncountersResponse"/>
         </wsdl:operation>
         <wsdl:operation name="getHeldItems">
             <wsdl:input message="ns:getHeldItemsRequest" wsaw:Action="urn:getHeldItems"/>
@@ -234,129 +248,10 @@
             </wsdl:output>
         </wsdl:operation>
     </wsdl:binding>
-    <wsdl:binding name="PokemonRequestSoapOperationSoap12Binding" type="ns:PokemonRequestSoapOperationPortType">
-        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-        <wsdl:operation name="getLocationAreaEncounters">
-            <soap12:operation soapAction="urn:getLocationAreaEncounters" style="document"/>
-            <wsdl:input>
-                <soap12:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="getHeldItems">
-            <soap12:operation soapAction="urn:getHeldItems" style="document"/>
-            <wsdl:input>
-                <soap12:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="getAbilities">
-            <soap12:operation soapAction="urn:getAbilities" style="document"/>
-            <wsdl:input>
-                <soap12:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="getBaseExperience">
-            <soap12:operation soapAction="urn:getBaseExperience" style="document"/>
-            <wsdl:input>
-                <soap12:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="getNamePokemon">
-            <soap12:operation soapAction="urn:getNamePokemon" style="document"/>
-            <wsdl:input>
-                <soap12:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="getId">
-            <soap12:operation soapAction="urn:getId" style="document"/>
-            <wsdl:input>
-                <soap12:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-    </wsdl:binding>
-    <wsdl:binding name="PokemonRequestSoapOperationHttpBinding" type="ns:PokemonRequestSoapOperationPortType">
-        <http:binding verb="POST"/>
-        <wsdl:operation name="getLocationAreaEncounters">
-            <http:operation location="getLocationAreaEncounters"/>
-            <wsdl:input>
-                <mime:content type="application/xml" part="parameters"/>
-            </wsdl:input>
-            <wsdl:output>
-                <mime:content type="application/xml" part="parameters"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="getHeldItems">
-            <http:operation location="getHeldItems"/>
-            <wsdl:input>
-                <mime:content type="application/xml" part="parameters"/>
-            </wsdl:input>
-            <wsdl:output>
-                <mime:content type="application/xml" part="parameters"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="getAbilities">
-            <http:operation location="getAbilities"/>
-            <wsdl:input>
-                <mime:content type="application/xml" part="parameters"/>
-            </wsdl:input>
-            <wsdl:output>
-                <mime:content type="application/xml" part="parameters"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="getBaseExperience">
-            <http:operation location="getBaseExperience"/>
-            <wsdl:input>
-                <mime:content type="application/xml" part="parameters"/>
-            </wsdl:input>
-            <wsdl:output>
-                <mime:content type="application/xml" part="parameters"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="getNamePokemon">
-            <http:operation location="getNamePokemon"/>
-            <wsdl:input>
-                <mime:content type="application/xml" part="parameters"/>
-            </wsdl:input>
-            <wsdl:output>
-                <mime:content type="application/xml" part="parameters"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="getId">
-            <http:operation location="getId"/>
-            <wsdl:input>
-                <mime:content type="application/xml" part="parameters"/>
-            </wsdl:input>
-            <wsdl:output>
-                <mime:content type="application/xml" part="parameters"/>
-            </wsdl:output>
-        </wsdl:operation>
-    </wsdl:binding>
     <wsdl:service name="PokemonRequestSoapOperation">
-        <wsdl:port name="PokemonRequestSoapOperationHttpSoap11Endpoint" binding="ns:PokemonRequestSoapOperationSoap11Binding">
+        <wsdl:port name="PokemonRequestSoapOperationHttpSoap11Endpoint"
+                   binding="ns:PokemonRequestSoapOperationSoap11Binding">
             <soap:address location="http://localhost:8080/axis2/services/PokemonRequestSoapOperation"/>
-        </wsdl:port>
-        <wsdl:port name="PokemonRequestSoapOperationHttpSoap12Endpoint" binding="ns:PokemonRequestSoapOperationSoap12Binding">
-            <soap12:address location="http://localhost:8080/axis2/services/PokemonRequestSoapOperation"/>
-        </wsdl:port>
-        <wsdl:port name="PokemonRequestSoapOperationHttpEndpoint" binding="ns:PokemonRequestSoapOperationHttpBinding">
-            <http:address location="http://localhost:8080/axis2/services/PokemonRequestSoapOperation"/>
         </wsdl:port>
     </wsdl:service>
 </wsdl:definitions>
