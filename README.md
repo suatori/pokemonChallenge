@@ -16,8 +16,11 @@ This project follows the API pattern and is split in 2 modules:**
   This is the module read of rest, api base from create wsdl, endpoint de soap and save register.
 
 * ***generate-clases_from_wsdl***
+  This is the module where we create the class of a wsdl.
 
-This is the module where we create the class of a wsdl.
+* ***generate-wsdl-from-classes***
+
+  This is the module where we create the wsdl of a classes.
 
 ### How do I get set up? ###
 
