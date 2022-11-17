@@ -11,7 +11,7 @@ Quick summary
 This project follows the API pattern and is split in 2 modules:**
 
 * ***endpointsoap***
-This is the module read of rest, api base from create wsdl, endpoint de soap and save register.
+  This is the module read of rest, api base from create wsdl, endpoint de soap and save register.
 
 * ***generate-clases_from_wsdl***
 
@@ -21,16 +21,13 @@ This is the module where we create the class of a wsdl.
 
 * Prerequisites
     * Java 11
+    * [Soap UI](https://www.soapui.org/downloads/soapui/)
+    * Internet connection
 
 * Summary of local set up
     * run `mvn clean install`
-        * This will create the `target/challenge.jar` file.
-    * run `$ docker build -t challenge:0.0.1.snapshot .`
-        * This will use the `Dockerfile` on the root of this project and will build the Docker image with our .jar file
-          created on the previous step.
-    * run ` docker/run.sh`
-        * This will use the Docker Image create on previous step, plus initialize redis & mongo.
-    * Go to your browser (i.e., chrome) and try:
+        * This will create the `challenge/endpointsoap/target/endpoint-0.0.1-SNAPSHOT.jar` file.
+
 
 * Configuration
     * In the [`application.properties`]( endpointsoap/src/main/resources/application.properties) file, you can override
@@ -42,8 +39,9 @@ This is the module where we create the class of a wsdl.
       modules use the same versions and thus avoiding potential conflicts.
     * Spring Web for the endpoints
     * Spring Boot for autoconfiguration
+
 * Database configuration
-    * We use H2
+    * H2
 
 
 * Application building
@@ -71,5 +69,21 @@ Sample maven command goal runs:
 * `mvn versions:display-property-updates`
 
 * How to run tests
-    * Run `mvn test` or any other goal that goes after test, i.e. `package` or `verify`.
-  
+    * Execute mvn clean install
+    * Execute the class com/challenge/endpointsoap/EndpointsoapApplicationTests.java (port 8080. For further
+      information, see challenge/endpointsoap/src/main/resources/application.properties)
+
+* How to validate operation?
+    * Open file challenge/generate-clases_from_wsdl/src/main/resources/service.wsdl in Soap UI.
+    * Execute SOAP methods (validate request).
+
+* How to validate the log database?
+    * Access the console at the following [http://localhost:8080/h2-console/](http://localhost:8080/h2-console/). You
+      need to enter the JDBC URL (For
+      further
+      information, see challenge/endpointsoap/src/main/resources/application.properties)
+    * Take a look at the data added by the 'challenge' application. Run the following SQL command:
+
+``````````
+SELECT * FROM LOGSERVICE 
+``````````
