@@ -6,6 +6,8 @@ This README would normally document whatever steps are necessary to get your app
 
 Quick summary
 
+![analisis diagram](doc/Test001_JavaSpring-Bankaya.png)
+
 * This is a evaluation challenge for a level junior, middle o senior backend.**
 
 This project follows the API pattern and is split in 2 modules:**
